@@ -1,0 +1,86 @@
+.body{
+  position: fixed;
+
+  width: 100%;
+  height: 100%;
+  background-color: #e7e7e7;
+
+  }
+.body-dizhi{
+  width: 100%;
+  background-color: white;
+}
+.body-dizhi-tab{
+  position: relative;
+  left: 4%;
+  width: 92%;
+  height: 110rpx;
+  border-top: 1rpx solid #e7e7e7;
+  display: flex;
+  align-items: center;
+  
+}
+.body-dizhi-text1{
+  position: relative;
+  left: 40rpx;
+  font-size: 35rpx;
+  width: 35%;
+  float: left;
+  
+}
+.body-dizhi-input1{
+  width: 65%;
+  float:right;
+  font-size: 30rpx;
+ 
+}
+.body-submit{
+  height: 100rpx;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  border-radius:0rpx; 
+  background-color: #f864a2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 35rpx;
+  border: none;
+}
+/*toast*/
+.toast_content_box { 
+ display: flex; 
+ width: 100%; 
+ height: 40%; 
+ justify-content: center; 
+ align-items: center; 
+ position: fixed; 
+ z-index: 999; 
+} 
+.toast_content { 
+ width: 50%; 
+ padding: 20rpx; 
+ background: rgba(0, 0, 0, 0.5); 
+ border-radius: 20rpx; 
+} 
+.toast_content_text { 
+ height: 100%; 
+ width: 100%; 
+ color: #fff; 
+ font-size: 28rpx; 
+ text-align: center; 
+} 
+.butto-1{
+  height: 60rpx;
+  width: 30%;
+  margin-top: 16%;
+  margin-left: 60%;
+  background-color:#32CD32;
+  display: flex;
+  color: white;
+  font-size: 30rpx;
+  border: none;
+  border-radius: 6prx;
+  line-height: 60rpx;
+}

@@ -1,0 +1,58 @@
+<radio-group class="radio-group" bindchange="radioChange">
+  <view class="body" wx:for="{{dizhis}}" wx:key="id" wx:for-index="i">
+    <view class="body-1" id="{{item.id}}" bindtap="{{onmsg?'genggai':''}}">
+      <view class="body-1-1">
+        <view class="body-1-one">
+          <text>{{item.name}}</text>
+        </view>
+        <view class="body-1-one">
+          <text></text>
+        </view>
+        <view class="body-1-tow">
+          <text>{{item.phone}}</text>
+        </view>
+      </view>
+      <view class="body-1-2">
+        <text>{{item.province}}{{item.city}}{{item.qu}}{{item.address}}</text>
+      </view>
+    </view>
+    <view class="body-2">
+      <view class="body-2-1">
+        <view class="body-2-one"  data-id="{{item.id}}">
+          <label class="checkbox">
+            <checkbox  value="{{item.id}}" id='{{item.id}}' hidden="false" />
+            <image class="body-img-1" src="{{url1}}/images/{{item.moren=='true'?'11':'00'}}.png"></image>
+          <text class="{{item.moren=='true'?'body-color':''}}">设为默认</text>
+          </label>
+        </view>
+      </view>
+      <view class="body-2-2">
+      
+        <view class="body-2-tow">
+        <navigator url="../updatedizhi/updatedizhi?id={{item.id}}&openid={{openid}}">
+          <text style="float:right;">编辑</text>
+          <image class="body-img-2" src="{{url1+'/images/dibianji.png'}}">
+          </image>
+          </navigator>
+        </view>
+     
+        <view class="body-2-tow" bindtap="queren" id="{{item.id}}">
+          <text style="float:right;">删除</text>
+          <image class="body-img-2" style="width:25rpx;" src="{{url1+'/images/dishanchu.png'}}">
+          </image>
+        </view>
+      </view>
+    </view>
+  </view>
+</radio-group>
+<view style='height: 100rpx;'></view>
+<navigator url="../adddizhi/dizhi?openid={{openid}}">
+  <view class="body-goumai">
+    <text class="dibu_add">新增地址</text>
+  </view>
+</navigator>
+<view class="page__bd">
+    <modal title="确认" confirm-text="确定" data-id="{{dizhiid}}" cancel-text="取消" hidden="{{modalHidden}}" mask bindconfirm="confirm_one" bindcancel="cancel_one">
+      确认删除吗？
+    </modal>
+</view>

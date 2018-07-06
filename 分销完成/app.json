@@ -1,0 +1,63 @@
+{
+  "pages":[
+    
+    "pages/index/index",
+    "pages/indexneigou/indexneigou",
+    "pages/product/product",
+    "pages/cart/cart",
+    "pages/allfenlei/allfenlei",
+    "pages/allproducts/allproducts",
+    "pages/adddizhi/dizhi",
+    "pages/team/team",
+    "pages/alldizhis/alldizhis",
+    "pages/updatedizhi/updatedizhi",
+    "pages/yhjuan/yhjuan",
+    "pages/allsearch/allsearch",
+    "pages/myorder/myorder",
+    "pages/final/final",
+    "pages/zhifu/zhifu",
+    "pages/zhuce/zhuce",
+    "pages/sfzheng/sfzheng",
+    "pages/wuliu/wuliu",
+    "pages/order/order"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#f864a2",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/images/home0.png",
+        "selectedIconPath": "/images/home1.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "/images/chart0.png",
+        "selectedIconPath": "/images/chart1.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/team/team",
+        "iconPath": "/images/user0.png",
+        "selectedIconPath": "/images/user1.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
+}

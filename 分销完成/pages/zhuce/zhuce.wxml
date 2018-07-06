@@ -1,0 +1,51 @@
+<view>
+  <form bindsubmit="formBindsubmit" bindreset="formReset">
+    <view class='page_1'>
+      <view class="flex-wrp" style="flex-direction:row;">
+        <view class="flex-item-1">
+          姓名
+        </view>
+        <view class="flex-item-2 ">
+          <input type="text" class="body-dizhi-input1" name="name" auto-focus="true" placeholder="请填写真实姓名" />
+        </view>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;">
+        <view class="flex-item-1">
+          联系电话
+        </view>
+        <view class="flex-item-2 ">
+          <input type="number" name="phone" auto-focus="true" maxlength='11' placeholder="请填写联系人电话" />
+        </view>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;">
+        <view class="flex-item-1">
+          部门
+        </view>
+        <view class="flex-item-2 ">
+          <input type="text" class="body-dizhi-input1" name="bumen" auto-focus="true" placeholder="请填写所在部门" />
+        </view>
+      </view>
+      <view class="flex-wrp2" style="flex-direction:row;">
+        <view class="flex-item-1">
+          主管姓名
+        </view>
+        <view class="flex-item-2 ">
+          <input type="text" class="body-dizhi-input1" name="name1" auto-focus="true" placeholder="请填写主管姓名" />
+        </view>
+      </view>
+    </view>
+    <view class='view_xie'>
+      <image style="height: 40rpx;width: 40rpx;margin-bottom: -1%;" src="{{url1}}/images/{{radio1?'2':'1'}}.png" bindtap='radioChange'></image>
+      <text class='text_1'>我已同意</text>
+      <text class='text_2'>《缙嘉注册协议》</text>
+    </view>
+    <button class="body-submit" formType="submit">注册</button>
+  </form>
+</view>
+<view class="toast_content_box" wx:if="{{isShowToast}}">
+  <view class="toast_content">
+    <view class="toast_content_text">
+      {{tip}}
+    </view>
+  </view>
+</view>

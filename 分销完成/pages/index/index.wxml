@@ -1,0 +1,133 @@
+<!--index.wxml-->
+<view class="scroll-head">
+  <image class="image-head-bei" src="{{url1}}/images/dibu.png"></image>
+  <image class="image-head-logo" src="{{url1+admin.img}}"></image>
+   <text class='text_1'>{{admin.dpname}}</text>
+</view>
+
+  <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+    <block wx:for="{{banners}}" >
+      <swiper-item>
+        <image src="{{url1+item.img}}"  class="slide-image" mode="aspectFill" data-url="{{item.link}}" bindtap="gourl"/>
+      </swiper-item>
+    </block>
+  </swiper>
+
+<view class="tuijian">
+  <view class="tuijian-1"></view>
+  <view class="tuijian-2">
+    <text>精品推荐</text>
+  </view>
+  <view class="tuijian-1"></view>
+</view>
+
+<view class="clearfix">
+<!--模板1-->
+  <block  wx:if="{{admin.moban==3}}">
+    <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
+      <block wx:for="{{tuijians}}" wx:key="key">
+      
+        <view class="scroll-view-item_H">
+          <navigator url="../product/product?id={{item.id}}">
+            <image class="tuijian-img" src="{{url1+item.img}}"></image>
+           
+            <view class="tuijian-text">
+              <view class="tuijian-text0">
+                <text class="tuijian-text1">{{item.title}}</text>
+                <text class="tuijian-text2">{{item.miaoshu}}</text>
+                <text class="tuijian-text3">￥{{item.price1}}</text>
+              </view>
+            </view>
+          </navigator>
+        </view>
+         
+      </block>
+    </scroll-view>
+  </block>
+  <!--模板2-->
+  <block  wx:if="{{admin.moban==2}}">
+    <view>
+      <block wx:for="{{tuijians}}" wx:key="key">
+      
+        <view class="scroll-view-item_H2">
+          
+          <navigator url="../product/product?id={{item.id}}">
+            <view class="img-moban2">
+            <image class="tuijian-img2" src="{{url1+item.img}}"></image>
+            </view>
+         
+          <view class="tuijian-text02">
+              <view class="tuijian-text0">
+                <text class="tuijian-text2-1">{{item.title}}</text>
+                
+                <text class="tuijian-text3">￥{{item.price1}}</text>
+              </view>
+          </view>
+         </navigator>
+        </view>
+      
+      </block>
+     </view>  
+  </block>
+   <!--模板1-->
+  <block  wx:if="{{admin.moban==1}}">
+    <view >
+      <block wx:for="{{tuijians}}" wx:key="key">
+      <view style=" float: left;width:50%"> 
+       <view class="scroll-view-item_H3">
+          <navigator url="../product/product?id={{item.id}}">
+            <image class="tuijian-img03" src="{{url1+item.img}}"></image>
+            
+            <view class="tuijian-text">
+              <view class="tuijian-text0">
+                <text class="tuijian-text11">{{item.title}}</text>
+                
+                <text class="tuijian-text3">￥{{item.price1}}</text>
+              </view>
+            </view>
+         </navigator>
+        </view>
+        </view> 
+      </block>
+    </view>
+    <view class="dibu_0">
+    
+  </view>
+  </block>
+</view>
+
+<view class="fenge"></view>
+<!--导航菜单-->
+
+<!--循环-->
+<scroll-view class="scroll-view_H scroll-daohang" scroll-x="true">
+  <view wx:for="{{navbar}}" id="{{item.id}}" data-idx="{{index}}" wx:key="unique" class="scroll-view-item_F" bindtap="navbarTap">
+    <view class="item {{currentTab==index ? 'active' : ''}}">
+      {{item.name}}
+    </view>
+  </view>
+</scroll-view>
+
+<!--分类-->
+
+<view class="clearfix">
+  <block wx:for="{{products}}" wx:key="key">
+    <view class="tuijian-bodynei">
+      <navigator class='view_a' url="../product/product?id={{item.id}}">
+        <image class="tuijian-img1" src="{{url1+item.img}}"></image>
+        <view class="tuijian-text">
+          <view class="tuijian-text0">
+            <text class="tuijian-text11">{{item.title}}</text>
+         
+            <text class="tuijian-text3" >￥{{item.price1}}</text>
+             
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </block>
+</view>
+
+ <navigator open-type="redirect"  url="../allproducts/allproducts">
+    <image class="buttom_1_image" src="{{url1}}/images/gd.png"></image>
+  </navigator>

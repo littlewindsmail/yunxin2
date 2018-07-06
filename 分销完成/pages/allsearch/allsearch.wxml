@@ -1,0 +1,48 @@
+<view class="body">
+  <view class="body-head">
+    <view class="body-head-1">
+      <view class="body-head-1-1">
+          <input type="text" placeholder="输入关键字搜索" name="keyword" confirm-type="search" value='{{keyword}}' bindconfirm="keywordSubmit" class="head-text" bindinput="keywordInput"/> 
+          <image class="head-sousuo" src="{{url1+'/images/soso.png'}}" bindtap='suosuo'>
+          </image>      
+      </view>
+    </view>
+    <view class="body-head-2">
+       <image  bindtap="onChangeShowState" class="head-fenlei" src="{{url1+'/images/leibiao.png'}}"></image>
+    </view>
+  </view>
+
+  <view class="{{fenlei?'fenleibar-show': 'fenleibar-hide'}}" >
+   <view wx:for="{{onemenus}}" wx:key="id" wx:for-index="i"  >
+   <navigator url="../allfenlei/allfenlei?id={{item.id}}">
+     <view class="fenleibar-{{currentTab==item.id ? 'tow' : 'one'}}" data-id="{{item.id}}" bindtap="tagChoose">
+        <text class="fenlei-text">{{item.name}}</text>
+      </view>
+      </navigator>
+   </view>
+      <view class="fenleibar-one">
+      <text class="fenlei-text">更多</text>
+     </view>
+  </view>
+ <block wx:for="{{product1s}}" wx:key="key"> 
+        <view  class="tuijian-bodynei">
+             <navigator url="../product/product?id={{item.id}}">
+                <image class="tuijian-img1" src="{{url1+item.img}}"></image>
+            
+            <view  class="tuijian-text">
+              <view class="tuijian-text0">
+                  <text class="tuijian-text11">{{item.title}}</text>
+                  
+                  <text class="tuijian-text3">￥{{item.price1}}</text> 
+              </view>
+            </view>
+            </navigator> 
+        </view>
+  </block>
+   <view class="dibu_0">
+    
+  </view>
+  <view class="dibu_1 {{dibu?'': 'dibu_2'}}">
+  <text >已全部加载完成</text>
+  </view>   
+</view>

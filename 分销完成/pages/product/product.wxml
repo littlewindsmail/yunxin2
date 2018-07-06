@@ -1,0 +1,135 @@
+<!--product.wxml-->
+<import src="../../wxParse/wxParse.wxml"/> 
+<view class="sp">
+  <view class="body">
+
+    <view>
+      <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+        <block wx:for="{{imas}}" wx:for-index="index">
+          <swiper-item>
+            <image src="{{url1+item}}" class="slide-image" mode="aspectFill" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <view class="body-title">
+      <view >
+        <text class='title'>{{product.title}}</text>
+      </view>
+
+      <view class="flex-wrp" style="flex-direction:row;">
+        <view class="flex-item-1">
+          <text >{{product.miaoshu}}</text>
+        </view>
+        <view class="flex-item-2 ">
+          <text style="" wx:if="{{product.baoshui==1&&product.bao==1}}">包税</text>
+          <text style="" wx:if="{{product.bao==0&&product.baoshui==1}}">税金：{{product.shuiprice}}</text>
+        </view>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;">
+        <view class="flex-item-1 ">
+          <text style="font-size: 17px;color:#fe0606" wx:if="{{product.bao==0}}">￥{{product.price1}}</text>
+          <text style="font-size: 17px;color:#fe0606" wx:else="{{product.baoshui==1&&product.bao==1}}">￥{{product.shprice}}</text>
+        </view>
+        <view class="flex-item-2 ">
+          <text style="font-size: 24rpx;color:#989898;" wx:if="{{product.bao==0&&product.baoshui==1}}">税率：{{product.shuibili}}</text>
+        </view>
+      </view>   
+    </view>
+  </view>
+
+  <view class="body">
+    <view class="body-title">
+      <view class="body-mokui">
+        <text class="body-mokui-1">品牌：</text>
+        <text class="body-mokui-2">{{product.pinpai}}</text>
+      </view>
+      <view class="body-mokui">
+        <text class="body-mokui-1">发货时间：</text>
+        <text class="body-mokui-2">{{fahuotime}}</text>
+      </view>
+      <view class="body-mokui">
+        <text class="body-mokui-1">发货地：</text>
+        <text class="body-mokui-2">{{product.fahuodi}}</text>
+      </view>
+    </view>
+
+
+    <view class="xqtext">
+      <text>商品详情</text>
+    </view>
+    <view class='rich-text'>
+      <!--<rich-text nodes=" {{product.xiangqing}}" bindtap="tap"></rich-text>-->
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </view>
+  </view>
+
+  <view class="float"></view>
+  <view class="body-goumai">
+
+    <view class="body-goumai-1" bindtap='gohome'>
+      <image class="body-goumai-1-img" src="{{url1+'/images/home.png'}}"></image>
+      <text class="body-goumai-1-text">首页</text>
+    </view>
+
+    <view class='xiajia' wx:if="{{product.shangjia=='已下架'}}" ><text>商品已下架</text></view>
+    <view class="body-goumai-1" bindtap='gocart'>
+      <image class="body-goumai-1-img" src="{{url1+'/images/cart.png'}}"></image>
+      <text class="body-goumai-1-text">购物车</text>
+    </view>
+
+    <view class="body-goumai-2" style=" background-color:#fa6827" data-add="1"  bindtap="{{product.shangjia=='已下架'?'':'onChangeShowState'}}">
+      <text class="body-goumai-2-text" style="{{product.shangjia=='已下架'?'opacity: 0.4':''}}">加入购物车</text>
+    </view>
+    <view class="body-goumai-2" style=" background-color:#ff0000"  data-add="2" bindtap="{{product.shangjia=='已下架'?'':'onChangeShowState'}}">
+      <text class="body-goumai-2-text" style="{{product.shangjia=='已下架'?'opacity: 0.4':''}}">立即购买</text>
+    </view>
+  </view>
+
+  <view class="guige-{{guigeshow?'hide':'show'}}">
+   <view class="guige-op" bindtap="onChangeShowState"></view>
+    <view class="guige-body">
+      <view class="guige-body1 ">
+        <view class="guige-body1-1">
+          <image class="guige-body1-1img" src="{{url1}}{{product.img}}"></image>
+          <view class="guige-body1-body">
+            <view class="guige-body1-text">
+              <text class="guige-body1-text1">{{product.title}}</text>
+              <text class="guige-body1-text2">{{product.miaoshu}}</text>
+              <text class="guige-body1-text4">库存：{{kucun}}件</text>
+              <text class="guige-body1-text3" wx:if="{{product.bao==0}}">￥{{product.price1}}</text>
+               <text class="guige-body1-text3" wx:else="{{product.baoshui==1&&product.bao==1}}">￥{{product.shprice}}</text>
+            </view>
+          </view>
+        </view>
+        
+        <view class="guige-body1-rudio " wx:for="{{guiges}}" wx:key="id" wx:for-index="i">
+          <view class="guige-body1-rudio{{currentTab==item.id ? '2' : '1'}}" data-id="{{item.id}}" data-bianma="{{item.name}}" data-kucun="{{item.kucun}}" data-name="{{item.name}}" bindtap="{{item.kucun>0 ? 'rudioChoose' : ''}}">
+            <text class="rudio-text1" style="color:{{item.kucun>0 ? '' : '#C0C0C0'}}">{{item.name}}</text>
+          </view>
+
+        </view>
+        <view style="clear:both;height:50rpx;"></view>
+      </view>
+
+
+      <view class="guige-body2">
+        <view class="guige-body2-1">
+          <text class="guige-body1-text2">数量</text>
+        </view>
+        <view class="guige-body2-2">
+          <view class="guige-num">
+            <view class="guige-num-kong1" data-num="{{guigenum}}" bindtap="{{guigenum<='1'?'':'subNum'}}">-</view>
+            <view class="guige-num-kong2">{{guigenum}}</view>
+            <view class="guige-num-kong1" data-num="{{guigenum}}" bindtap="{{guigenum<kucun1?'addNum':''}}">+</view>
+          </view>
+        </view>
+      </view>
+      <view style="clear:both;height:100rpx;"></view>
+      <view class="guige-body3" bindtap="{{queren==1?add==1?'addcart':'addorder':''}}">
+        <text>确认</text>
+      </view>
+    </view>
+  </view>
+</view>

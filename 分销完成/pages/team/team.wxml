@@ -1,0 +1,51 @@
+<view class="head">
+  <image class="head-img" src="{{userInfo.avatarUrl}}"></image>
+  <text class="head-text">{{userInfo.nickName}}</text>
+</view>
+<view class="tabnav">
+ <navigator url="../myorder/myorder">
+  <view class="tabnav-1">
+    <view class="tabnav-2">
+      <text class="tabnav-text">我的订单</text>
+    </view>
+    <view class="tabnav-2 img">
+      <image class="tabnav-img" src="{{url1+'/images/箭头.png'}}"></image>
+    </view>
+  </view>
+  </navigator>
+</view>
+
+<view class="tabnav">
+  <navigator url="../alldizhis/alldizhis">
+    <view class="tabnav-1">
+      <view class="tabnav-2">
+        <text class="tabnav-text">地址管理</text>
+      </view>
+      <view class="tabnav-2 img">
+        <image class="tabnav-img" src="{{url1+'/images/箭头.png'}}"></image>
+      </view>
+    </view>
+  </navigator>
+  <navigator url="../yhjuan/yhjuan?openid={{openid}}">
+    <view class="tabnav-1">
+      <view class="tabnav-2">
+        <text class="tabnav-text">优惠劵管理</text>
+      </view>
+      <view class="tabnav-2 img">
+        <image class="tabnav-img" src="{{url1+'/images/箭头.png'}}"></image>
+      </view>
+
+    </view>
+  </navigator>
+</view>
+<view class="tabnav">
+  <view class="tabnav-1" bindtap='calling'>
+    <view class="tabnav-2">
+      <text class="tabnav-text">联系客服</text>
+    </view>
+    <view class="tabnav-2 img">
+      <text class="text2">{{admin.kfphone}}</text>
+    </view>
+
+  </view>
+</view>
